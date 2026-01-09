@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'PlusJakartaSans';
+    src: url(./fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Urbanist';
+    src: url(./fonts/Urbanist-VariableFont_wght.ttf);
+}
+//variables
+$color00: #ffffff;
+$color01: rgb(20,20,20);
+$color01bis: rgba(20,20,20, 0.2);
+$color02: rgb(88, 197, 142);
+$color02bis: rgb(32, 156, 94);
+$color03: #2459a8;
+
+$font01: 'PlusJakartaSans';
+$font02: 'Urbanist';
+
+$tablet: 800px;
+$desktop: 1200px;
+
+$padMin: 1.5rem;
+
+nav,
+header,
+main,
+footer,
+section{
+    width: 100%;
+}
+header,
+main,
+footer,
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+nav{
+    height: 10dvh;
+    background-color: rgb(178, 18, 18);
+}
+header{
+    height: 90dvh;
+    background-color: rgb(50, 50, 178);
+    justify-content: center;
+}
+main{
+    background-color: rgb(65, 151, 65);
+    row-gap: 3rem;
+    @media only screen and (min-width: $tablet) {
+        row-gap: 4rem;
+    }
+    @media only screen and (min-width: $desktop){
+        row-gap: 6rem;
+    }
+}
+footer{
+    height: 400px;
+    background-color: rgb(61, 52, 52);
+}
+section{
+    background-color: antiquewhite;
+    padding: $padMin 0;
+    row-gap: 2rem;
+    @media only screen and (min-width: $tablet){
+        padding: 4rem 0;
+    }
+    @media only screen and (min-width: $desktop){
+        padding: 6rem 0;
+    }
+}
+article{
+    background-color: aliceblue;
+    width: 100%;
+    padding: $padMin;
+    @media only screen and (min-width: $tablet){
+        width: 90%;
+    }
+    @media only screen and (min-width: $desktop){
+        width: 70%;
+    }
+}
+h1,
+h2,
+h3,
+h4{
+    font-family: $font01;
+}
+h1{
+    color: $color00;
+}
+p, span, li, a{
+    font-family: $font02;
+}
+.boton{
+    padding: 0.5rem 2rem;
+    background-color: $color03;
+    color: $color00;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1px solid $color03;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    
+    &:hover{
+        color:$color03;
+        background-color: $color00;
+        transform: scale(.9);
+    }
+    &:active{
+        transform: scale(.8);
+    }
+}
