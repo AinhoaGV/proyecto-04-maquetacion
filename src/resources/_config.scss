@@ -54,7 +54,7 @@ header{
     justify-content: center;
 }
 main{
-    background-color: rgb(65, 151, 65);
+    //background-color: rgb(65, 151, 65);
     row-gap: 3rem;
     @media only screen and (min-width: $tablet) {
         row-gap: 4rem;
@@ -68,7 +68,7 @@ footer{
     background-color: rgb(61, 52, 52);
 }
 section{
-    background-color: antiquewhite;
+    //background-color: antiquewhite;
     padding: $padMin 0;
     row-gap: 2rem;
     @media only screen and (min-width: $tablet){
@@ -79,7 +79,7 @@ section{
     }
 }
 article{
-    background-color: aliceblue;
+    //background-color: aliceblue;
     width: 100%;
     padding: $padMin;
     @media only screen and (min-width: $tablet){

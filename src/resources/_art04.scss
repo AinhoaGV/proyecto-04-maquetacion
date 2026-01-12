@@ -1,0 +1,72 @@
+@use 'config' as c;
+
+.art04{
+   display: grid; 
+   gap: 1rem;
+   grid-template-rows: auto;
+   grid-template-columns: auto;
+   grid-template-areas:
+    'area01'
+    'area02'
+    'area03'
+    'area04'
+    'area05'
+    'area06'
+    'area07'
+    'area08'
+   ;
+   @media only screen and (min-width:c.$tablet){
+    grid-template-rows: 20%;
+    grid-template-columns: 40% auto;
+    grid-template-areas:
+        'area01 area02'
+        'area03 area03'
+        'area04 area05'
+        'area06 area06'
+        'area07 area08'
+    ;
+   }
+   @media only screen and (min-width:c.$desktop){
+    grid-template-rows: 50%;
+    grid-template-areas:
+        'area01 area02 area04 area05'
+        'area03 area03 area04 area06'
+        'area03 area03 area07 area08'
+    ;
+   }
+   >div{
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position:center;
+        transition: 1s;
+        filter: grayscale(1);
+    }
+    &:hover{
+        img{
+            transform: scale(1.2);
+            filter: grayscale(0);
+        }
+    }
+   }
+   >:nth-child(1){
+    grid-area: area01;
+   }
+   >:nth-child(2){
+    grid-area: area02;
+   }
+   >:nth-child(3){
+    grid-area: area03;
+   }
+   >:nth-child(4){
+    grid-area: area04;
+   }
+   >:nth-child(5){
+    grid-area: area05;
+   }
+   >:nth-child(6){
+    grid-area: area06;
+   }
+}

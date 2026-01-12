@@ -1,3 +1,30 @@
 @use './resources/config' as c;
 @use './resources/art01';
 @use './resources/art02';
+@use './resources/art03';
+@use './resources/art04';
+
+.art03{
+    width: 80%;
+    background-color: c.$color03;
+    //color: c.$color00;
+    //text-align: center;
+
+    p,
+    >:nth-child(1){
+        color: c.$color00;
+    }
+
+    > div{
+        .ficha{
+            align-items: center;
+            border-color: c.$color00;
+
+            p,
+            >:nth-child(2){
+                color: c.$color00;
+                text-align: center;
+            }
+        }
+    }
+}

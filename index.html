@@ -20,7 +20,23 @@
         <!-- Nuestra panadería -->
         <article class="art01">
           <h3>(h3) Nuestra panadería</h3>
-          <img src="https://dummyimage.com/1000x500" alt="" title="">
+
+          <img
+          srcset="
+          https://dummyimage.com/900x900 900w,
+          https://dummyimage.com/1800x1100 1800w,
+          https://dummyimage.com/2560x1200 2560w
+          "
+          sizes="
+          (width <= 900px) 700px,
+          (width <= 1800px) 1200px,
+          2560px"
+          src="
+          https://dummyimage.com/900x900"
+          width="900"
+          alt="" title="">
+
+
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quod odio totam illum hic quis quo, libero aut ab soluta, molestias expedita iste saepe, tenetur ad eligendi omnis explicabo obcaecati quae enim doloribus quaerat mollitia. Amet autem soluta adipisci corporis eaque reprehenderit, provident, dolorum deserunt, voluptas suscipit laudantium molestiae. Consectetur.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero perferendis dolorum voluptas recusandae rem incidunt ipsam, veniam, amet quo numquam sunt, necessitatibus quasi laboriosam voluptates enim adipisci ducimus alias vel a. Ullam alias maxime voluptate praesentium. Odit, nostrum deserunt.</p>
           <a href="#" class="boton">CTA</a>
@@ -111,20 +127,79 @@
       <!-- productos -->
       <section>
         <h2>(h2) Producto</h2>
+        <!--panedería-->
         <article>
           <h3>(h3) Panadería</h3>
         </article>
-
-        <article class="art01">
+        <!--Pastelería-->
+        <article>
           <h3>(h3) Pasteleria</h3>
-          <img src="https://dummyimage.com/1000x500" alt="" title="">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae quod odio totam illum hic quis quo, libero aut ab soluta, molestias expedita iste saepe, tenetur ad eligendi omnis explicabo obcaecati quae enim doloribus quaerat mollitia. Amet autem soluta adipisci corporis eaque reprehenderit, provident, dolorum deserunt, voluptas suscipit laudantium molestiae. Consectetur.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat libero perferendis dolorum voluptas recusandae rem incidunt ipsam, veniam, amet quo numquam sunt, necessitatibus quasi laboriosam voluptates enim adipisci ducimus alias vel a. Ullam alias maxime voluptate praesentium. Odit, nostrum deserunt.</p>
-          <a href="#" class="boton">CTA</a>
         </article>
-
+        <!-- Torrijas-->
         <article>
           <h3>(h3) Torrijas</h3>
+        </article>
+        <article class="art04">
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+          <div>
+            <img src="./src/resources/imgs/pan.avif" alt="">
+          </div>
+        </article>
+        <!--Nuestros ingredientes-->
+        <article class="art03">
+          <h3>Nuestros ingredientes</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat nesciunt quo ipsa expedita optio dolor voluptate ad tenetur in! Eligendi rerum deserunt voluptate officiis voluptas, earum perferendis? Temporibus non adipisci dignissimos. Aliquam exercitationem vitae saepe beatae veniam, ad distinctio ea, omnis debitis ullam quam laboriosam dignissimos praesentium. Saepe, nulla eum.</p>
+          <div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div><div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div>
+            <div class="ficha">
+              <img src="https://dummyimage.com/32x32" alt="">
+              <h4>Harina de arroz</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, dolores.</p>
+            </div>
+          </div>
         </article>
       </section>
       <!-- contacto -->
