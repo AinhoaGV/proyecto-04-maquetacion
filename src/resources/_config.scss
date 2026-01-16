@@ -14,6 +14,7 @@
 }
 //variables
 $color00: #ffffff;
+$color00bis: #ededed;
 $color01: rgb(20,20,20);
 $color01bis: rgba(20,20,20, 0.2);
 $color02: rgb(88, 197, 142);
@@ -50,6 +51,7 @@ nav{
 }
 header{
     height: 90dvh;
+    padding: $padMin;
     background-color: rgb(50, 50, 178);
     justify-content: center;
 }
@@ -81,9 +83,10 @@ section{
 article{
     //background-color: aliceblue;
     width: 100%;
-    padding: $padMin;
+    //padding: $padMin;
     @media only screen and (min-width: $tablet){
         width: 90%;
+        //padding: initial;
     }
     @media only screen and (min-width: $desktop){
         width: 70%;

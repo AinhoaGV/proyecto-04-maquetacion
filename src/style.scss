@@ -3,12 +3,12 @@
 @use './resources/art02';
 @use './resources/art03';
 @use './resources/art04';
+@use './resources/art05';
+@use './resources/art06';
 
 .art03{
     width: 80%;
     background-color: c.$color03;
-    //color: c.$color00;
-    //text-align: center;
 
     p,
     >:nth-child(1){

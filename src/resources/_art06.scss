@@ -1,0 +1,57 @@
+@use 'config' as c;
+
+.art06{
+    width: 100%;
+    padding: c.$padMin;
+    background-color: c.$color00bis;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    row-gap: 2rem;
+
+    @media only screen and (min-width: c.$tablet){
+        width: 80%;
+        flex-direction: row;
+        column-gap: 2rem;
+
+        &.reverse{
+            // flex-direction: column-reverse;
+            // @media only screen and (min-width: c.$tablet){
+            //     flex-direction: row-reverse;
+            // }
+            >img{
+                order: 2;
+            }
+            div{
+                order: 1;
+            }
+        }
+    }
+
+    @media only screen and (min-width: c.$desktop){
+        width: 60%;
+    }
+
+    >img{
+        width:100%;
+
+        object-fit: cover;
+        object-position: center;
+        @media only screen and (min-width: c.$tablet){
+            width:60%;
+        }
+    }
+
+    >div{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        row-gap: 2rem;
+        
+        p{
+            text-wrap: balance;
+        }
+    }
+}

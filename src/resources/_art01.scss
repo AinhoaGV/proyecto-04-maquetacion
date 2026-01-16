@@ -1,6 +1,7 @@
 @use 'config' as c;
 
 .art01{
+  padding: c.$padMin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +9,7 @@
   row-gap: 2rem;
 
   @media only screen and (min-width: c.$tablet){
+    padding: initial;
     row-gap: 3rem;
   }
   @media only screen and (min-width: c.$desktop){
