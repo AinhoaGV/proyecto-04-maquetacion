@@ -15,11 +15,13 @@
 //variables
 $color00: #ffffff;
 $color00bis: #ededed;
+$color00svg: invert(100%) sepia(100%) saturate(0%) hue-rotate(222deg) brightness(101%) contrast(104%);
 $color01: rgb(20,20,20);
 $color01bis: rgba(20,20,20, 0.2);
 $color02: rgb(88, 197, 142);
 $color02bis: rgb(32, 156, 94);
 $color03: #2459a8;
+$color03svg: invert(23%) sepia(96%) saturate(1329%) hue-rotate(199deg) brightness(92%) contrast(85%);
 
 $font01: 'PlusJakartaSans';
 $font02: 'Urbanist';
@@ -101,7 +103,7 @@ h4{
 h1{
     color: $color00;
 }
-p, span, li, a{
+p, span, li, a, label{
     font-family: $font02;
 }
 .boton{

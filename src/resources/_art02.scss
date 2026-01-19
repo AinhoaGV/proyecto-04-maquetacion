@@ -73,7 +73,7 @@
           color: c.$color00;
         }
         img{
-          filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(222deg) brightness(101%) contrast(104%);
+          filter: c.$color00svg;
         }
       }
     }
@@ -101,7 +101,7 @@
 
         img{
           width: 30px;
-          filter: invert(23%) sepia(96%) saturate(1329%) hue-rotate(199deg) brightness(92%) contrast(85%);
+          filter: c.$color03svg;
           transition: .2s ease-in-out;
         }
       }
