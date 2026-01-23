@@ -65,6 +65,11 @@ $borderRadius: 10px;
                 align-items: flex-start;
                 justify-content: flex-start;
                 row-gap:0.5rem;
+                padding: 1rem;
+
+                @media only screen and (min-width: c.$tablet){
+                    padding: initial;
+                }
 
                 input, textarea{
                     width: 100%;

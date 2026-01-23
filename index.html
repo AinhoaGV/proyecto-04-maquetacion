@@ -245,11 +245,11 @@
         <div>
           <div class="contenedor-form">
             <img src="./src/resources/imgs/ico-mail.svg" alt="">
-            <form action="/" method="post">
+            <form action="/App/artForm01.php" method="post" id="idForm">
               
               <!--nombre-->
               <label for="nombre">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" minlength="3" maxlength="20" placeholder="Escribe aquí tu nombre *" required>
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí tu nombre *">
 
               <!--telefono-->
               <label for="telefono">Teléfono *</label>
@@ -257,7 +257,7 @@
 
               <!--email-->
               <label for="email">Correo electrónico *</label>
-              <input type="email" id="email" name="email" placeholder="Escribe aquí tu correo electrónico *" required>
+              <input type="text" id="email" name="email" placeholder="Escribe aquí tu correo electrónico *">
 
               <!--mensaje-->
               <label for="mensaje">Tu mensaje *</label>
@@ -266,17 +266,18 @@
               <!--terminos-->
               <div class="horizontal">
                 <label for="terminos">Aceptar términos y condiciones de la privacidad *</label>
-                <input type="checkbox" name="terminos" id="terminos" required>
+                <input type="checkbox" name="terminos" id="terminos">
               </div>
               
               
               <div class="horizontal">
                 <!--captcha-->
                 <span id="num1">3</span>
-                <span>+</span>
+                <span id="operador"></span>
                 <span id="num2">7</span>
                 <span>=</span>
-                <input type="text" name="respuesta" id="respuesta" placeholder="Resultado" required>
+                <input type="hidden" name="respSystem" id="respSystem" value="">
+                <input type="text" name="respUser" id="respuesta" placeholder="Resultado">
               </div>
 
               <input type="submit" value="Enviar" class="boton">
