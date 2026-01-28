@@ -30,7 +30,7 @@ try {
     $mail->CharSet = PHPMailer::CHARSET_UTF8;                    
     $mail->Subject = $asunto; //varibles
     $mail->Body = $cuerpo; //variables
-    /* $mail->AddEmbeddedImage('../imags-web/mundo2.png', 'reflogotipo'); */
+    $mail->AddEmbeddedImage('./logo.png', 'reflogotipo');
     $mail->AltBody = 'Body in plain text for non-HTML mail clients';
 
     if (!$mail->send()) {

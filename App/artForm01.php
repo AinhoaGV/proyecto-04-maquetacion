@@ -1,6 +1,12 @@
 <?php
 //funciones externas
 include_once("../config/helper.php");
+
+require_once '../vendor/autoload.php';
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable('../');
+$dotenv->load();
+
 // aquí voy a gestionar lo que reciba del formulario
 
 // 1 recibir los datos del formulario a través de POST y los value en nuevas variables que usaré aquí
@@ -98,6 +104,38 @@ if(comprobarCaracteres($mensaje, 5, 200)){
 // }
 
 // 3 Enviar emails
+$urlWeb = "http://localhost:3000";
+$correoEmisor = $_ENV["EMAIL_WEB"];
+$nombreEmisor = "Web Panadería";
+$correoDestinatario = $_ENV["EMAIL_ADMIN"];
+$nombreDestinatario = "Admin de la web";
+$asunto = "Has recibido una nueva consulta en la web de $nombre";
+$cuerpo = '
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>'.$asunto.'</title>
+</head>
+<body>
+    <!-- LOGO -->
+    <a href="'.$urlWeb.'" target="_blank" style="text-decoration:none;border:0;">
+        <img src="cid:reflogotipo" width="150" style="display:block;border:0;outline:none;text-decoration:none;height:auto;" alt="{web}">
+    </a>
+    <h1>Hola '.$nombreDestinatario.'</h1>
+    <p>Has recibido un email desde la web de parte de '.$nombre.'. Estos son los datos para contactar con esta persona:</p>
+    <ul>
+        <li>Nombre: '.$nombre.'</li>
+        <li>Teléfono: '.$telefono.'</li>
+        <li>Email: '.$email.'</li>
+        <li>Mensaje: '.$mensaje.'</li>
+    </ul>
+</body>
+</html>
+';
+
+include_once('./envioPhpMailer.php');
 
 // 4 guardar los datos en una base de datos
 
@@ -105,6 +143,6 @@ if(comprobarCaracteres($mensaje, 5, 200)){
 
 // 6  redirigir a la página de gracias
 $nombreURL = urlencode($nombre);
-header("location:/gracias.php?nom=$nombreURL");
+header('location:/gracias.php?nom='.$nombreURL);
 die;
 ?>
