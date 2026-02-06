@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{asunto}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#ededed;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ededed" style="background-color:#ededed;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border-radius:8px;box-shadow:0 2px 8px rgba(36,89,168,0.08);margin:40px 0;">
+                    <tr>
+                        <td align="center" bgcolor="#f9f6f1" style="padding:24px 0 16px 0;border-radius:8px 8px 0 0;">
+                            <a href="{urlWeb}" target="_blank" style="text-decoration:none;border:0;">
+                                <img src="cid:reflogotipo" alt="Web Panadería" width="120" style="display:block;border:0;outline:none;text-decoration:none;height:auto;">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:32px 24px 24px 24px;">
+                            <h1 style="color:rgb(20,20,20);font-size:1.6em;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;">{titulo}</h1>
+                            <p style="color:#2459a8;font-size:1.1em;font-family:Arial,Helvetica,sans-serif;margin:0 0 18px 0;">{explicacion}</p>
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f9f6f1;border-left:4px solid rgb(88,197,142);margin:24px 0 24px 0;padding:0;border-radius:4px;">
+                                <tr>
+                                    <td style="padding:16px 20px;">
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                                            <tr>
+                                                <td style="color:rgb(20,20,20);font-size:1em;padding-bottom:8px;font-family:Arial,Helvetica,sans-serif;"><strong>Mensaje enviado:</strong> {fecha}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:rgb(20,20,20);font-size:1em;padding-bottom:8px;font-family:Arial,Helvetica,sans-serif;"><strong>Nombre:</strong> {nombre}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:rgb(20,20,20);font-size:1em;padding-bottom:8px;font-family:Arial,Helvetica,sans-serif;"><strong>Teléfono:</strong> {telefono}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:rgb(20,20,20);font-size:1em;padding-bottom:8px;font-family:Arial,Helvetica,sans-serif;"><strong>Email:</strong> {email}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:rgb(20,20,20);font-size:1em;font-family:Arial,Helvetica,sans-serif;"><strong>Mensaje:</strong> {mensaje}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p style="color:#2459a8;font-size:1.1em;font-family:Arial,Helvetica,sans-serif;margin:0 0 18px 0;">{responder}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ededed" style="color:#2459a8;text-align:center;font-size:0.95em;padding:18px 0;border-radius:0 0 8px 8px;font-family:Arial,Helvetica,sans-serif;">
+                            Este mensaje ha sido enviado automáticamente desde <a href="http://localhost:3000" style="color:rgb(32,156,94);text-decoration:none;">Web Panadería</a>.<br>
+                            Si tienes alguna duda, contacta con el administrador.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

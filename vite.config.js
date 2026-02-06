@@ -9,6 +9,10 @@ export default defineConfig({
         target: 'http://localhost:8000',
         changeOrigin: true,
       },
+      '/index.php': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
       '/gracias.php': {
         target: 'http://localhost:8000',
         changeOrigin: true,

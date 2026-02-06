@@ -241,27 +241,47 @@
       <!-- contacto -->
        <h2>(h2) Contacto</h2>
       <section class="artForm01">
+        <?php
+          // comprobar si hay variables get en la url
+          // si hay variables las voy a recoger aquí
+          //
+          if(isset($_GET["error"])){
+            $error = $_GET["error"];
+            $campo = $_GET["campo"];
+            $nombre = $_GET["nombre"];
+            $telefono = $_GET["telefono"];
+            $email = $_GET["email"];
+            $mensaje = $_GET["mensaje"];
+          }
+        ?>
         <h3>Formulario y datos</h3>
         <div>
           <div class="contenedor-form">
             <img src="./src/resources/imgs/ico-mail.svg" alt="">
             <form action="/App/artForm01.php" method="post" id="idForm">
+              <?php
+                if(isset($error)){
+              ?>
+                  <p class='error'>Hay un error del tipo <?=$error?> en el campo <?=$campo?></p>
+              <?php
+                }
+              ?>
               
               <!--nombre-->
               <label for="nombre">Nombre *</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí tu nombre *">
+              <input type="text" id="nombre" name="nombre" placeholder="Escribe aquí tu nombre *" value="<?php if(isset($error)){echo $nombre;} ?>">
 
               <!--telefono-->
               <label for="telefono">Teléfono *</label>
-              <input type="tel" id="telefono" name="telefono" placeholder="Escribe aquí tu teléfono *">
+              <input type="tel" id="telefono" name="telefono" placeholder="Escribe aquí tu teléfono *" value="<?php if(isset($error)){echo $telefono;} ?>">
 
               <!--email-->
               <label for="email">Correo electrónico *</label>
-              <input type="text" id="email" name="email" placeholder="Escribe aquí tu correo electrónico *">
+              <input type="text" id="email" name="email" placeholder="Escribe aquí tu correo electrónico *" value="<?php if(isset($error)){echo $email;} ?>">
 
               <!--mensaje-->
               <label for="mensaje">Tu mensaje *</label>
-              <textarea name="mensaje" id="mensaje" placeholder="Escribe aquí tu mensaje *"></textarea>
+              <textarea name="mensaje" id="mensaje" placeholder="Escribe aquí tu mensaje *"><?php if(isset($error)){echo $mensaje;} ?></textarea>
 
               <!--terminos-->
               <div class="horizontal">
@@ -272,9 +292,9 @@
               
               <div class="horizontal">
                 <!--captcha-->
-                <span id="num1">3</span>
+                <span id="num1"></span>
                 <span id="operador"></span>
-                <span id="num2">7</span>
+                <span id="num2"></span>
                 <span>=</span>
                 <input type="hidden" name="respSystem" id="respSystem" value="">
                 <input type="text" name="respUser" id="respuesta" placeholder="Resultado">
