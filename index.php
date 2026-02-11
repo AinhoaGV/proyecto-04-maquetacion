@@ -239,7 +239,7 @@
         </article>
       </section>
       <!-- contacto -->
-       <h2>(h2) Contacto</h2>
+       <h2 id="artForm01">(h2) Artículo de form01 con POST y GET</h2>
       <section class="artForm01">
         <?php
           // comprobar si hay variables get en la url
@@ -254,10 +254,14 @@
             $mensaje = $_GET["mensaje"];
           }
         ?>
+        
         <h3>Formulario y datos</h3>
         <div>
           <div class="contenedor-form">
             <img src="./src/resources/imgs/ico-mail.svg" alt="">
+            <?php if(isset($_GET["envio"]) && $_GET["envio"] == "ok"){ ?>
+              <p class="exito">Tu mensaje ha sido enviado correctamente</p>
+            <?php }else{ ?>
             <form action="/App/artForm01.php" method="post" id="idForm">
               <?php
                 if(isset($error)){
@@ -302,6 +306,103 @@
 
               <input type="submit" value="Enviar" class="boton">
             </form>
+            <?php }?>
+          </div>
+          
+          <div class="contenedor-info">
+            <ul>
+              <li>
+                <a href="tel:+34943000000" target="_blank">
+                  <img src="./src/resources/imgs/ico-phone.svg" alt="">
+                  <span>943000000</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/610058776" target="_blank">
+                  <img src="./src/resources/imgs/ico-whatsapp.svg" alt="">
+                  <span>666666666</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://maps.app.goo.gl/2XTGC8KXb9mipHun7" target="_blank">
+                  <img src="./src/resources/imgs/ico-address.svg" alt="">
+                  <span>Calle de la amargura, 20800 Zarautz (Gipuzkoa)</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:ainhoa.gomez+1@gmail.com" target="_blank">
+                  <img src="./src/resources/imgs/ico-mail.svg" alt="">
+                  <span>ainhoa.gomez+1@gmail.com</span>
+                </a>
+              </li>
+            </ul>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5808.947443853325!2d-2.1690286437178394!3d43.28340018018128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1768584282460!5m2!1ses!2ses" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+      <!-- contacto2 -->
+      <h2 id="artForm02">(h2) Artículo de form02 envío XMLHTTPRequest ajax</h2>
+      <section class="artForm02">        
+        <h3>Formulario y datos</h3>
+        <div>
+          <div class="contenedor-form">
+            <img src="./src/resources/imgs/ico-mail.svg" alt="">
+            <h4 id="h4Form02"></h4>
+            <form id="idFormAjax">
+              <p class="error" id="errorForm02"></p>
+              <!--nombre-->
+              <label for="nombreAjax">Nombre *</label>
+              <input type="text" id="nombreAjax" name="nombre" placeholder="Escribe aquí tu nombre *" value="<?php if(isset($error)){echo $nombre;} ?>">
+
+              <!--telefono-->
+              <label for="telefonoAjax">Teléfono *</label>
+              <input type="tel" id="telefonoAjax" name="telefono" placeholder="Escribe aquí tu teléfono *" value="<?php if(isset($error)){echo $telefono;} ?>">
+
+              <!--email-->
+              <label for="emailAjax">Correo electrónico *</label>
+              <input type="text" id="emailAjax" name="email" placeholder="Escribe aquí tu correo electrónico *" value="<?php if(isset($error)){echo $email;} ?>">
+
+              <!--mensaje-->
+              <label for="mensajeAjax">Tu mensaje *</label>
+              <textarea name="mensaje" id="mensajeAjax" placeholder="Escribe aquí tu mensaje *"><?php if(isset($error)){echo $mensaje;} ?></textarea>
+
+              <!--terminos-->
+              <div class="horizontal">
+                <label for="terminosAjax">Aceptar términos y condiciones de la privacidad *</label>
+                <input type="checkbox" name="terminos" id="terminosAjax">
+              </div>
+              
+              
+              <div class="horizontal">
+                <!--captcha-->
+                <span id="num1ajax"></span>
+                <span id="operadorajax"></span>
+                <span id="num2ajax"></span>
+                <span>=</span>
+                <input type="hidden" name="respSystem" id="respSystemajax" value="">
+                <input type="text" name="respUser" id="respuestaajax" placeholder="Resultado">
+              </div>
+
+              <input type="submit" value="Enviar" class="boton" id="btnEnviarAjax">
+            </form>
+            
+            <div class="moduleLoader01" id="moduleLoader01">
+              <!-- Loader 10 -->
+
+              <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                  <path fill="#000" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                    <animateTransform 
+                      attributeName="transform" 
+                      attributeType="XML" 
+                      type="rotate"
+                      dur="1s" 
+                      from="0 50 50"
+                      to="360 50 50" 
+                      repeatCount="indefinite" />
+                </path>
+              </svg>
+            </div>
           </div>
           
           <div class="contenedor-info">

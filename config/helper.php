@@ -22,3 +22,20 @@ function comprobarEmail($email){
     $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
     return preg_match($patron, $email);
 }
+
+function enviarRespuestaAsincrona($mensaje, $fallo, $campo){
+
+    // creación de array asociativo
+    $arrayRespuesta = array(
+        "mensaje" => $mensaje,
+        "fallo" => $fallo,
+        "campo" => $campo
+    );
+
+    // crear un json del array
+    $jsonDelArray = json_encode($arrayRespuesta);
+
+    //devolvemos el json al cliente
+    echo $jsonDelArray;
+    die;
+}
