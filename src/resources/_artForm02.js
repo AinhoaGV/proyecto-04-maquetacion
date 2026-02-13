@@ -5,10 +5,74 @@ const formulario = document.querySelector("#idFormAjax")
 const botonEnviarAjax = document.querySelector("#btnEnviarAjax")
 const inputs = formulario.querySelectorAll("input, textarea")
 
-const h4Form02 = document.querySelector("#h4Form02")
+const modal_envio_ok_msg = document.querySelector("#modal_envio_ok_msg")
 const errorForm02 = document.querySelector("#errorForm02")
 const loader = document.getElementById("moduleLoader01")
 
+const modalEnvioOk = document.querySelector("#modal_envio_ok")
+const volverAlFormulario = document.querySelector("#volver_al_formulario")
+
+// OBJETIVOS
+function generarCaptcha(){
+    // RECOJO EN CONSTANTES LOS ELEMENTOS A LOS QUE TENDRÉ QUE INSERTAR LOS NÚMEROS RANDOM Y TAMBIÉN EL INPUT
+    const num1 = document.getElementById("num1ajax")
+    const num2 = document.getElementById("num2ajax")
+    const operador = document.getElementById("operadorajax")
+    const respSystem = document.getElementById("respSystemajax")
+    // CALCULAR DOS NÚMEROS RANDOM DEL 0 AL 10
+    let valorNum1 = (Number)(Math.floor(Math.random()*10))
+    let valorNum2 = (Number)(Math.floor(Math.random()*10))
+
+    // EJERCICIO EXTRA: MÁXIMO 4 CON SWITCH CASE
+    let valorNum3 = (Number)(Math.floor(Math.random()*3))
+    let resultado
+    switch (valorNum3){
+        case 0:
+            resultado = valorNum1 + valorNum2
+            operador.innerText = "+"
+            break
+        case 1:
+            resultado = valorNum1 - valorNum2
+            operador.innerText = "-"
+            break
+        case 2:
+            resultado = valorNum1 * valorNum2
+            operador.innerText = "x"
+            break
+        default:
+            console.log("No está dentro")
+            break
+    }
+
+    // HACER SU SUMA
+    //resultado = valorNum1 + valorNum2
+    // INSERTARLOS COMO TEXTOS DENTRO DE DOS SPAN HTML
+    num1.innerText = valorNum1
+    num2.innerText = valorNum2
+    // EL RESULTADO DE SU SUMA, INSERTARLO COMO VALUE DENTRO DEL INPUT OCULTO
+    respSystem.value = resultado
+}
+
+volverAlFormulario.addEventListener("click", function(){
+    modalEnvioOk.style.display = "none"
+    formulario.style.display = ""
+    modal_envio_ok_msg.innerText = ""
+    errorForm02.innerText = ""
+    // habilitamos de nuevo los inputs
+    botonEnviarAjax.style.pointerEvents = "initial"
+    formulario.style.filter = "initial"
+    inputs.forEach(input => {
+        input.disabled=false
+        if(input.type!="submit"){
+            if(input.type=="checkbox"){
+                input.checked = false
+            }else{
+                input.value = ""
+            }
+        }
+    })
+    generarCaptcha()
+})
 
 // Evento de escucha de que se haga submit del form
 formulario.addEventListener("submit", function(evento){
@@ -46,7 +110,8 @@ formulario.addEventListener("submit", function(evento){
             }else{
                 //Cuando no hay fallo
                 formulario.style.display = "none"
-                h4Form02.innerText = mensaje
+                modal_envio_ok_msg.innerText = mensaje
+                modalEnvioOk.style.display = "initial"
             }
         }
     }
@@ -98,46 +163,4 @@ formulario.addEventListener("submit", function(evento){
     // // loader
 })
 
-
-
-
-
-
-// OBJETIVOS
-// RECOJO EN CONSTANTES LOS ELEMENTOS A LOS QUE TENDRÉ QUE INSERTAR LOS NÚMEROS RANDOM Y TAMBIÉN EL INPUT
-const num1 = document.getElementById("num1ajax")
-const num2 = document.getElementById("num2ajax")
-const operador = document.getElementById("operadorajax")
-const respSystem = document.getElementById("respSystemajax")
-// CALCULAR DOS NÚMEROS RANDOM DEL 0 AL 10
-let valorNum1 = (Number)(Math.floor(Math.random()*10))
-let valorNum2 = (Number)(Math.floor(Math.random()*10))
-
-// EJERCICIO EXTRA: MÁXIMO 4 CON SWITCH CASE
-let valorNum3 = (Number)(Math.floor(Math.random()*3))
-let resultado
-switch (valorNum3){
-    case 0:
-        resultado = valorNum1 + valorNum2
-        operador.innerText = "+"
-        break
-    case 1:
-        resultado = valorNum1 - valorNum2
-        operador.innerText = "-"
-        break
-    case 2:
-        resultado = valorNum1 * valorNum2
-        operador.innerText = "x"
-        break
-    default:
-        console.log("No está dentro")
-        break
-}
-
-// HACER SU SUMA
-//resultado = valorNum1 + valorNum2
-// INSERTARLOS COMO TEXTOS DENTRO DE DOS SPAN HTML
-num1.innerText = valorNum1
-num2.innerText = valorNum2
-// EL RESULTADO DE SU SUMA, INSERTARLO COMO VALUE DENTRO DEL INPUT OCULTO
-respSystem.value = resultado
+generarCaptcha()

@@ -347,7 +347,13 @@
         <div>
           <div class="contenedor-form">
             <img src="./src/resources/imgs/ico-mail.svg" alt="">
-            <h4 id="h4Form02"></h4>
+            <div id="modal_envio_ok" class="modal_envio_ok">
+              <div>
+                <img src="./src/resources/imgs/ico-mail.svg" alt="">
+                <h4 id="modal_envio_ok_msg" class="modal_envio_ok_msg">Gracias por tu email</h4>
+                <button id="volver_al_formulario" class="boton">Volver al formulario</button>
+              </div>
+            </div>
             <form id="idFormAjax">
               <p class="error" id="errorForm02"></p>
               <!--nombre-->
