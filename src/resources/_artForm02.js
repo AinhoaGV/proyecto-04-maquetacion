@@ -115,7 +115,7 @@ formulario.addEventListener("submit", function(evento){
             }
         }
     }
-    xmlhttp.open("POST","/App/artForm02.php", true)// true para que sea asíncrono
+    xmlhttp.open("POST","App/artForm02.php", true)// true para que sea asíncrono
     xmlhttp.send(camposFormulario)
 
     //Aquí podría ejecutar código simultáneo al envío
@@ -131,7 +131,7 @@ formulario.addEventListener("submit", function(evento){
 
     //OPCIÓN B FETCH
 
-    // fetch("/App/artForm02.php", { method: "POST", body: camposFormulario })
+    // fetch("App/artForm02.php", { method: "POST", body: camposFormulario })
     // .then(async (res) => {
     //     if (!res.ok) throw new Error(`HTTP ${res.status}`)
  

@@ -1,10 +1,26 @@
+<?php
+// Cargamos .env para poder leer APP_ENV en local (dev/prod)
+if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    require __DIR__ . '/vendor/autoload.php';
+    if (class_exists('Dotenv\\Dotenv')) {
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+        $dotenv->safeLoad();
+    }
+}
+
+require __DIR__ . '/config/helpers.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="<?php echo vite_public_url('vite.svg') ; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>proyecto-04-maquetacion</title>
+    <?php
+      // Inyecta CSS/JS desde Vite (manifest en produccion o /src en desarrollo)
+      vite_assets();
+    ?>
   </head>
   <body>
     <nav>
@@ -90,23 +106,23 @@
               <h4>Atención personalizada</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -116,23 +132,23 @@
               <h4>Los mejores ingredientes</h4>
               <ul>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
                 <li>
-                  <img src="./src/resources/imgs/check.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/check.svg'); ?>" alt="">
                   <span>Lorem ipsum dolor sit amet.</span>
                 </li>
               </ul>
@@ -177,28 +193,28 @@
         </article>
         <article class="art04">
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="Pan">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="">
           </div>
           <div>
-            <img src="./src/resources/imgs/pan.avif" alt="">
+            <img src="<?php echo vite_public_url('resources/pan.avif'); ?>" alt="Pan">
           </div>
         </article>
         <!--Nuestros ingredientes-->
@@ -258,11 +274,11 @@
         <h3>Formulario y datos</h3>
         <div>
           <div class="contenedor-form">
-            <img src="./src/resources/imgs/ico-mail.svg" alt="">
+            <img src="<?php echo vite_public_url('resources/ico-mail.svg'); ?>" alt="">
             <?php if(isset($_GET["envio"]) && $_GET["envio"] == "ok"){ ?>
               <p class="exito">Tu mensaje ha sido enviado correctamente</p>
             <?php }else{ ?>
-            <form action="/App/artForm01.php" method="post" id="idForm">
+            <form action="App/artForm01.php" method="post" id="idForm">
               <?php
                 if(isset($error)){
               ?>
@@ -313,25 +329,25 @@
             <ul>
               <li>
                 <a href="tel:+34943000000" target="_blank">
-                  <img src="./src/resources/imgs/ico-phone.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-phone.svg'); ?>" alt="">
                   <span>943000000</span>
                 </a>
               </li>
               <li>
                 <a href="https://wa.me/610058776" target="_blank">
-                  <img src="./src/resources/imgs/ico-whatsapp.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-whatsapp.svg'); ?>" alt="">
                   <span>666666666</span>
                 </a>
               </li>
               <li>
                 <a href="https://maps.app.goo.gl/2XTGC8KXb9mipHun7" target="_blank">
-                  <img src="./src/resources/imgs/ico-address.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-address.svg'); ?>" alt="">
                   <span>Calle de la amargura, 20800 Zarautz (Gipuzkoa)</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:ainhoa.gomez+1@gmail.com" target="_blank">
-                  <img src="./src/resources/imgs/ico-mail.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-mail.svg'); ?>" alt="">
                   <span>ainhoa.gomez+1@gmail.com</span>
                 </a>
               </li>
@@ -346,10 +362,10 @@
         <h3>Formulario y datos</h3>
         <div>
           <div class="contenedor-form">
-            <img src="./src/resources/imgs/ico-mail.svg" alt="">
+            <img src="<?php echo vite_public_url('resources/ico-mail.svg'); ?>" alt="">
             <div id="modal_envio_ok" class="modal_envio_ok">
               <div>
-                <img src="./src/resources/imgs/ico-mail.svg" alt="">
+                <img src="<?php echo vite_public_url('resources/ico-mail.svg'); ?>" alt="">
                 <h4 id="modal_envio_ok_msg" class="modal_envio_ok_msg">Gracias por tu email</h4>
                 <button id="volver_al_formulario" class="boton">Volver al formulario</button>
               </div>
@@ -415,25 +431,25 @@
             <ul>
               <li>
                 <a href="tel:+34943000000" target="_blank">
-                  <img src="./src/resources/imgs/ico-phone.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-phone.svg'); ?>" alt="">
                   <span>943000000</span>
                 </a>
               </li>
               <li>
                 <a href="https://wa.me/610058776" target="_blank">
-                  <img src="./src/resources/imgs/ico-whatsapp.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-whatsapp.svg'); ?>" alt="">
                   <span>666666666</span>
                 </a>
               </li>
               <li>
                 <a href="https://maps.app.goo.gl/2XTGC8KXb9mipHun7" target="_blank">
-                  <img src="./src/resources/imgs/ico-address.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-address.svg'); ?>" alt="">
                   <span>Calle de la amargura, 20800 Zarautz (Gipuzkoa)</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:ainhoa.gomez+1@gmail.com" target="_blank">
-                  <img src="./src/resources/imgs/ico-mail.svg" alt="">
+                  <img src="<?php echo vite_public_url('resources/ico-mail.svg'); ?>" alt="">
                   <span>ainhoa.gomez+1@gmail.com</span>
                 </a>
               </li>
@@ -446,6 +462,6 @@
     <footer>
 
     </footer>
-    <script type="module" src="/src/main.js"></script>
+    <!--<script type="module" src="/src/main.js"></script>-->
   </body>
 </html>

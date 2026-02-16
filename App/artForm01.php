@@ -1,6 +1,6 @@
 <?php
 //funciones externas
-include_once("../config/helper.php");
+include_once("../config/helpers.php");
 
 require_once '../vendor/autoload.php';
 use Dotenv\Dotenv;
@@ -15,7 +15,7 @@ $mensaje = $_POST["mensaje"];
 // 1 recibir los datos del formulario a través de POST y los value en nuevas variables que usaré aquí
 // Comprobación de términos
 if(comprobarVacio($_POST["terminos"])){
-    header("location:/index.php?error=aceptar&campo=terminos&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=aceptar&campo=terminos&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }else{
     $terminos = $_POST["terminos"];
@@ -23,7 +23,7 @@ if(comprobarVacio($_POST["terminos"])){
 // if(empty($_POST["terminos"])){
 //     // como viene vacía, redirijo a la página de contacto
 //     // echo "Hay un error pues no ha aceptado las condiciones de privacidad";
-//     header('location:/index.php?error=condiciones');
+//     header('location:../index.php?error=condiciones');
 //     die;
 // }else{
 //     $terminos = $_POST["terminos"];
@@ -34,12 +34,12 @@ $respUser = $_POST["respUser"];
 $respSystem = $_POST["respSystem"];
 // Vacio
 if(!isset($respUser)){
-    header("location:/index.php?error=vacio&campo=captcha&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=captcha&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // No coinciden
 if($respUser != $respSystem){
-    header("location:/index.php?error=nocoincide&campo=captcha&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=nocoincide&campo=captcha&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // 2 comprobar que los datos son correctos
@@ -48,59 +48,59 @@ $fecha = date('Y-m-d H:i:s'); // guardo la fecha y hora del envío del formulari
 
 //Si nombre viene vacio
 if(comprobarVacio($nombre)){
-    header('location:/index.php?error=vacio&campo=nombre');
+    header('location:../index.php?error=vacio&campo=nombre');
     die;
 }
 // Si nombre es menor de 3 o mayor de 40
 if(comprobarCaracteres($nombre, 3, 40)){
-    header("location:/index.php?error=caracteres&campo=nombre&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=caracteres&campo=nombre&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // $contadorCaracteres = strlen($nombre);
 // if($contadorCaracteres<3 || $contadorCaracteres>40){
-//     header('location:/index.php?error=nombreCaracteres');
+//     header('location:../index.php?error=nombreCaracteres');
 //     die;
 // }
 // Si teléfono viene vacio
 if(comprobarVacio($telefono)){
-    header("location:/index.php?error=vacio&campo=telefono&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=telefono&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 
 // Si el email viene vacio
 if(comprobarVacio($email)){
-    header("location:/index.php?error=vacio&campo=email&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=email&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 
 //Expresión regular para comprobar formato email
 if (!comprobarEmail($email)) {
-    header("location:/index.php?error=formato&campo=email&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=formato&campo=email&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // $patron = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
 // if (!preg_match($patron, $email)) {
-//     header('location:/index.php?error=emailFormato');
+//     header('location:../index.php?error=emailFormato');
 //     die;
 // }
 // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//     header('location:/index.php?error=emailFormato');
+//     header('location:../index.php?error=emailFormato');
 //     die;
 // }
 
 // SI el mensaje viene vacio
 if(comprobarVacio($mensaje)){
-    header("location:/index.php?error=vacio&campo=mensaje&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=vacio&campo=mensaje&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;
 }
 // Si nombre es menor de 4 o mayor de 200
 if(comprobarCaracteres($mensaje, 5, 200)){
-    header("location:/index.php?error=caracteres&campo=mensaje&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
+    header("location:../index.php?error=caracteres&campo=mensaje&nombre=$nombre&telefono=$telefono&email=$email&mensaje=$mensaje#artForm01");
     die;    
 }
 // $contadorCaracteres = strlen($mensaje);
 // if($contadorCaracteres<5 || $contadorCaracteres>200){
-//     header('location:/index.php?error=mensajeCaracteres');
+//     header('location:../index.php?error=mensajeCaracteres');
 //     die;
 // }
 
@@ -184,6 +184,6 @@ include('./envioPhpMailer.php');
 
 // 6  redirigir a la página de index para mostrar un mensaje de envío ok en vez de el formulario
 $nombreURL = urlencode($nombre);
-header("location:/index.php?envio=ok&nom=$nombreURL");
+header("location:../index.php?envio=ok&nom=$nombreURL#artForm01");
 die;
 ?>

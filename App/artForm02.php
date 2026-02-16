@@ -5,7 +5,7 @@ $dotenv = Dotenv::createImmutable('../');
 $dotenv->load();
 
 //funciones externas
-include_once("../config/helper.php");
+include_once("../config/helpers.php");
 
 // aquí voy a gestionar lo que reciba del formulario
 $nombre = $_POST["nombre"];
