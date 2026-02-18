@@ -317,7 +317,7 @@ require __DIR__ . '/config/helpers.php';
                 <span id="num2"></span>
                 <span>=</span>
                 <input type="hidden" name="respSystem" id="respSystem" value="">
-                <input type="text" name="respUser" id="respuesta" placeholder="Resultado">
+                <input type="text" name="respUser" id="respuesta" placeholder="Resultado" autocomplete="off">
               </div>
 
               <input type="submit" value="Enviar" class="boton">
@@ -402,7 +402,7 @@ require __DIR__ . '/config/helpers.php';
                 <span id="num2ajax"></span>
                 <span>=</span>
                 <input type="hidden" name="respSystem" id="respSystemajax" value="">
-                <input type="text" name="respUser" id="respuestaajax" placeholder="Resultado">
+                <input type="text" name="respUser" id="respuestaajax" placeholder="Resultado" autocomplete="off">
               </div>
 
               <input type="submit" value="Enviar" class="boton" id="btnEnviarAjax">
